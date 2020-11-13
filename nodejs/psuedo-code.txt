@@ -1,0 +1,8 @@
+create folder called tissue backend
+change directories into tissue backend
+create a folder named app
+change directories into app
+create a file named server.js
+go up one directory, into the main folder, tissue-backend
+do a npm init command
+create a simple server that listens on port 3000

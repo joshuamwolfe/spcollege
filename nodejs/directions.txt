@@ -1,0 +1,21 @@
+For this assignment, complete the following:
+
+1. Create a folder called tissue_backend to store your project files.
+2. Inside that folder, run the npm-init command to create a new package.json
+3. Add a subdirectory under tissue_backend named “app”
+4. In your app folder, create a server.js file.
+    a. In server.js, create a simple server that listens on port 3000
+    b. Just like the photo album application from chapter 4, the tissue application will maintain
+    a collection of issues. An issue contains the following information:
+        i. Id
+        ii. Title
+        iii. Status(New, Closed, Resolved)
+        iv. Assignee – The person the Issue is assignment to
+        v. Created – Date the issue was created
+        vi. Updated – Date the issue was last updated
+        vii. Details – Details of the issue
+
+c. Modify your server.js to handle two requests. The first request is to retrieve all issues.
+Create a fake array of about 5 issues and return the list of issues as json. The second
+request will be a post used to create an issue. Modify your server.js to take a post
+request containing json for a new issue and add the issue to your array of issues.
