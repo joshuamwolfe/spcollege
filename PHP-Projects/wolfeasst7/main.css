@@ -1,0 +1,59 @@
+body {
+    background: #666666;
+    font-family: Arial, Helvetica, sans-serif;    
+}
+
+main {
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    margin: 0 auto;
+    padding: 20px;
+    width: 450px;
+    
+}
+
+h1 {
+    color: navy;
+    margin: 1em 0 .5em .5em;
+    padding: 0;
+}
+
+p {
+    margin: .5em 0;
+}
+
+fieldset {
+    margin-bottom: .5em;
+    margin: 0;
+    padding-left: 1em;
+}
+
+label {
+    float: left;
+    margin-bottom: .2em;
+    margin-right: 1em;
+    text-align: right;
+    width: 10em;
+}
+
+input {
+    float: left;
+}
+
+br {
+    clear: both;
+    margin-bottom: .2em;
+}
+
+.textbox {
+    margin-bottom: .2em;
+    width: 15em;
+}
+
+.text_align_center {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}

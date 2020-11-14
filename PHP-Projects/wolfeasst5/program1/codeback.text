@@ -1,0 +1,105 @@
+<!--
+
+<?php echo htmlspecialchars($number2); ?>
+
+<?php echo htmlspecialchars($number1); ?>
+
+
+<h2>Message:</h2>
+<p><?php echo nl2br(htmlspecialchars($message), FALSE); ?></p>
+
+<main>
+    <h1>String Tester</h1>
+    <form action="/" method="post">
+    <input type="hidden" name="action" value="process_data">
+
+    <label>Name:</label>
+    <input type="text" name="name"
+           value="<?php echo htmlspecialchars($name); ?>">
+    <br>
+
+    <label>E-Mail:</label>
+    <input type="text" name="email"
+           value="<?php echo htmlspecialchars($email); ?>">
+    <br>
+
+    <label>Phone Number:</label>
+    <input type="text" name="phone"
+           value="<?php echo htmlspecialchars($phone); ?>">
+    <br>
+
+    <label>&nbsp;</label>
+    <input type="submit" value="Submit">
+    <br>
+
+    </form>
+
+    // TODO:
+    // directory traversal
+    // procedural code
+
+
+
+    => //arrays
+    $array = [ $key => 'value'];
+    echo $array[$key:'<br>'];
+
+    for (i)
+
+    foreach ($newArray as $k => $v ) {
+      print $v;
+      print '<br>';
+    }
+
+    $var1 = NULL;
+    -> //objectmethod
+
+    session_start(); <- before you reference any session variable
+    $_SESSION array <- you can put all kinds of info in this.
+
+    HWORK TODO:
+    The PHP file called stringer.php that manipulates the saying and generates the output shown below:
+        -Display the word count.
+
+
+        $sent = "James is a mentor."
+
+        function word_count(arg) {
+            explode
+        }
+
+        //https://www.php.net/manual/en/function.explode.php
+
+
+        print_r()
+        $text = 'My dog has fleas';
+        $glue = ' ';
+        $exploded = explode($glue, $text);
+        print_r($exploded);
+        print count($exploded);
+
+        TODO:
+        function word_count(arg) {
+            pregsplit
+        }
+        -Replace all vowels with stars (regular expression required).
+        -Split the saying into an array and display each word on a line.
+
+    PART 2
+    Create a PHP page for handling a simple interest loan. The current date and time should be displayed at the top of the page. Use a form with four inputs for the loan:
+
+        -the start date
+        -the due date
+        -the annual interest rate as a %
+        -the principal amount borrowed
+    Be sure to enter the day, month and year for both dates. When the form is submitted, the application should display:
+
+        -the loan start date
+        -the loan due date
+        -the annual rate of simple interest as a %
+        -the principal amount of the loan in currency format
+        -the simple interest due in currency format
+        -the amount required to repay the loan (principal + interest) in currency format
+    -->
+
+    3 days a week 12 hours, it varies.

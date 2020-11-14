@@ -1,0 +1,69 @@
+<table>
+    <tr>
+        <th>CustID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+    </tr>
+    <!-- <?php foreach ($city as $town) : ?>
+    <tr>
+        <td><?php echo $town['CustID']; ?></td>
+        <td><?php echo $town['Name']; ?></td>
+        <td><?php echo $town['Address']; ?></td>
+        <td><?php echo $town['City']; ?></td>
+        <td><?php echo $town['State']; ?></td>
+        <td><?php echo $town['zip']; ?></td>
+    </tr>
+    <?php endforeach?> -->
+</table>
+
+---------------
+
+<?php
+    require_once('database.php');
+    //Safely read the city into a variable from the index.html form.
+    include('index.html');
+    //get city data from index.html
+    $city = filter_input(INPUT_POST, 'city');
+    //validate city
+    if ($city == NULL || $city == FALSE) {
+        echo 'Please enter a valid city';
+    }
+
+    // $query = 'SELECT * FROM customers
+    //               WHERE city = :city';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':city', $city);
+    $statement->execute();
+    $customers = $statement->fetchAll();
+?>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Cust_City</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <main>
+            <h1>Cities:</h1>
+            <table border='1'>
+                <tr><th>ID</th><th>CATEGORY</th><th>CODE</th><th>NAME</th><th>PRICE</th></tr>
+            <?php
+                $query = "select * from products where state === 'FL'";
+                foreach($db->query($query) as $row) {
+                    echo '<td>'.$row['custid'].'</td>';
+                    echo '<td>'.$row['name'].'</td>';
+                    echo '<td>'.$row['adresss'].'</td>';
+                    echo '<td>'.$row['city'].'</td>';
+                    echo '<td>'.$row['state'].'</td></tr>';
+                    echo '<td>'.$row['zip'].'</td></tr>';
+                }
+            ?>
+            </table>
+        </main>
+    </body>
+</html>

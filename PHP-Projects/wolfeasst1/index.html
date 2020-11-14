@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cashier</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+
+  <body>
+    <main>
+      <h1>Cashier</h1>
+      <form action="checkout.php" method="post">
+        <div id="data">
+          <label>Item Description:</label>
+          <input type="text" name="item_description" /><br />
+
+          <label>Unit Price:</label>
+          <input type="text" name="unit_price" /><br />
+
+          <label>Quantity:</label>
+          <input type="text" name="quantity" /><br />
+        </div>
+
+        <div id="buttons">
+          <label>&nbsp;</label>
+          <input type="submit" value="Checkout" /><br />
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

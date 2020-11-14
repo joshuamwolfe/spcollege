@@ -1,0 +1,18 @@
+<!-- <?php
+$_SESSION['CART']['KEY1'] = 'VAL1';
+$_SESSION['CART']['KEY2'] = 'VAL2';
+
+$cart = $_SESSION['CART'];
+foreach ($cart as $item) {
+    echo '<li>' . $item . '</li>';
+}
+
+
+foreach ($_SESSION as $key => $value) {
+    echo  'Current session variable ' . $key . ' is: ' . $value . '<br />';
+}
+?>
+
+foreach($_SESSION as $name => $value) {
+echo 'Current session variable is: ' . $value . ' ; the name is ' . $name . '<br />';
+} -->

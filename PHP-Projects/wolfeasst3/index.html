@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>Howling Pizza</title>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' type='text/css' href='main.css'>
+  </head>
+  <body>
+    <main>
+      <!--      Site title-->
+      <h1 class='floastleft'> Howling Pizza!! </h1>
+      <img src='pizza.jpg' alt='pizza' height='100' width='150' class='pizzapic'>
+      <br>
+      <br>
+      <!--        Order Pizza Form-->
+      <form action='readform.php' method='post'>
+        <fieldset>
+            <legend>Contact Information:</legend>
+            <div id='dataTwo'>
+              <label>Phone Number:</label>
+              <input type='text' name='phone'><br>
+              <label>Address One:</label>
+              <input type='text' name='one'><br>
+              <label>Address Two:</label>
+              <input type='text' name='two'><br>              
+            </div>
+        </fieldset>
+        <fieldset>
+          <legend> Menu: </legend>
+          <div id='data'>
+            <!--                Pizza Size-->
+            <h4> Pick Size: </h4>
+            <input type='radio' name='pizza' value='small'>Small Pizza @ $7<br>
+            <input type='radio' name='pizza' value='medium'>Medium Pizza @ $10<br>
+            <input type='radio' name='pizza' value='large'>Large Pizza @ $13<br>
+            <!--                Pizza Toppings-->
+            <h4> Toppings </h4>
+            <small> Choose as many as you want, <strong>the topping's are $1.25 each.</strong></small></p><br>
+            <input type='checkbox' name='topping[]' value='pepperoni'>Pepperoni<br>
+            <input type='checkbox' name='topping[]' value='sausage'>Sausage<br>
+            <input type='checkbox' name='topping[]' value='onion'>Onion<br>
+            <input type='checkbox' name='topping[]' value='olive'>Olive<br>
+            <input type='checkbox' name='topping[]' value='mushroom'>Mushroom<br>
+            <!--                Pizza Sides and Dips-->
+            <h4> Sides: </h4>
+            <small> Choose as many as you want, <strong>the side's are $3.00 each.</strong></small></p><br>
+            <select name='sides[]' size='4' multiple><br>
+              <option value='coke2Liter'>Coke 2-Liter</option>
+              <option value='dietCoke2Liter'>Diet Coke 2-liter</option>
+              <option value='sprite2Liter'>Sprite 2-liter</option>
+              <option value='brownie'>brownie</option>
+              <option value='ranchDip'>4 Ranch Dip Packets</option>
+              <option value='garlicDip'>4 Garlic Dip Packets</option>
+              <option value='breadSticks'>4 Bread Sticks Packets</option>
+            </select>
+            <!--                Order Review-->
+            <label> Special Requests </label>
+            <textarea name='review' cols='30' rows='5'></textarea>
+            <br>
+          </div>
+          <label>&nbsp;</label>
+          <input type='submit' value='order pizza'><br>
+        </fieldset>
+      </form>
+    </main>
+  </body>
+</html>
