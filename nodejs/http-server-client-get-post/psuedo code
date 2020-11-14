@@ -1,0 +1,18 @@
+create a folder called tissue_backend 
+    inside this folder run the npm-init
+    create a directory named app
+        within the app directory, create a js file called server.js
+            in the server.js file do the following
+                create a server function
+                create a array five issues
+                return said array as JSON
+                    setup server to accept two requests
+                        first request retrieve all issues
+                        second request create an issue via the post method
+                create a method for a ID
+                create a method for a Title
+                create a method for a Status(New, Closed, Resolved)
+                create a method for a Assignee – The person the Issue is assignment to
+                create a method for a Created – Date the issue was created
+                create a method for a Updated – Date the issue was last updated
+                create a method for a Details – Details of the issue
