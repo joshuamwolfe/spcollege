@@ -1,37 +1,6 @@
-// var fakeArray = [
-// 	{id: 1,
-// 	title: 'bad apple',
-// 	status: 'new',
-// 	created: '1/1/01',
-// 	updated: '',
-// 	details: 'Website broke?'},
-// 	{id: 2,
-// 	title: 'invalid request',
-// 	status: 'closed',
-// 	created: '2/1/01',
-// 	updated: '',
-// 	details: 'unknown filepath'},
-// 	{id: 3,
-// 	title: 'too slow',
-// 	status: 'closed',
-// 	created: '2/3/05',
-// 	updated: '4/3/05',
-// 	details: 'user complaint'},
-// 	{id: 4,
-// 	title: 'unable to create account',
-// 	status: 'resolved',
-// 	created: '4/12/11',
-// 	updated: '4/28/11',
-// 	details: 'Website broke?'},
-// 	{id: 5,
-// 	title: 'missing permission',
-// 	status: 'resolved',
-// 	created: '5/11/01',
-// 	updated: '6/11/01',
-// 	details: 'added authorization'},
-// ];
-
+const issue_manager = require('issue-manager');
 const next_id = 6;
+const fake_array = [...issue_manager.issues()];
 
 function send_success (res, data) {
 	res.writeHead(200, {"Content-Type": "application/json"});
@@ -58,11 +27,12 @@ function create_issue (req) {
 		'end' ,
 		function () {      
 		if (json_body) {
-		var issue_data = JSON.parse(json_body);
+			var issue_data = JSON.parse(json_body);
 			issue_data.id = next_id;
-			next_id++;
-		fakeArray.push(issue_data);
-		send_success(res, null);
+			next_id++;	
+			var new_issue = issue_manager.create_issue(issue_data);
+			fake_array.push(new_issue);
+			send_success(res, null);
 		}
 	})
 }
@@ -74,7 +44,7 @@ function handle_request (req, res) {
 
 	if (method == 'get') {
 	// return issues
-	send_success(res, fakeArray);
+	send_success(res, fake_array);
 	}
 
 	else if (method == 'post') {

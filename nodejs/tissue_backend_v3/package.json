@@ -1,0 +1,11 @@
+{
+  "name": "tissue_backend_v3",
+  "version": "1.0.0",
+  "description": "school project",
+  "main": "server.js",
+  "scripts": {
+    "test": "na"
+  },
+  "author": "Joshua Wolfe",
+  "license": "ISC"
+}
