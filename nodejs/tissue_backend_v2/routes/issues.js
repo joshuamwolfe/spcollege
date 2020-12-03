@@ -1,7 +1,19 @@
 let express = require('express');
 let router = express.Router();
 let issueManager = require('issue-manager');
+const mongoose = require('mongoose');
 const fakeArray = [...issueManager.issues()];
+
+// removes depreciation warning
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+
+mongoose
+    .connect('mongodb://localhost/tissue')
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => console.error('Could not be connect to MongoDB because:' + err));
 
 // router.use(express.json());
 // router.use(express.urlencoded({ extended: true}));
