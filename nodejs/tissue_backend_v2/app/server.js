@@ -10,10 +10,7 @@ app.use('/', userRouter);
 const port = process.env.PORT || 3000;
 let s = app.listen(port);
 
-//testing!//testing!
-
 // console.log(issueRouter.stack);
-
 
 // old code
 
