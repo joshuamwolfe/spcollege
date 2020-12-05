@@ -15,8 +15,8 @@ mongoose
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => console.error('Could not be connect to MongoDB because:' + err));
 
-// router.use(express.json());
-// router.use(express.urlencoded({ extended: true}));
+router.use(express.json());
+router.use(express.urlencoded({ extended: true}));
 
 router.get('/issues', (req, res) => {
 	/*
@@ -24,6 +24,11 @@ router.get('/issues', (req, res) => {
 	*/
 	res.json(fakeArray)  
 });
+
+let greet = function(name) {
+    let result = `Hello my name is ${name}`;
+    console.log(result);
+}
 
 router.put('/issues/issues.json', (req, res) => {	
 	/*
@@ -81,6 +86,12 @@ router.delete('issues/:issue_id.json', (req,res) => {
 	res.status(200).send('Movie deleted!');
 });
 
+
+const getName = () => {
+    return 'Jim';
+  };
+
+exports.getName = getName;
 
 module.exports = router;
 

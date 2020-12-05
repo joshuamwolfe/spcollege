@@ -1,6 +1,7 @@
 let issueRouter = require('../routes/issues.js');
 let userRouter = require('../routes/users.js');
 let express = require('express');
+const { GridFSBucket } = require('mongodb');
 let app = express();
 
 app.use(express.json());
@@ -9,6 +10,9 @@ app.use('/', userRouter);
 
 const port = process.env.PORT || 3000;
 let s = app.listen(port);
+
+
+console.log(`User: ${user.getName()}`);
 
 // console.log(issueRouter.stack);
 
