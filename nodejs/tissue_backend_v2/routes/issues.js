@@ -1,19 +1,19 @@
 let express = require('express');
 let router = express.Router();
-let issueManager = require('issue-manager');
+let issueManager = require('../issue-manager/issue');
 const mongoose = require('mongoose');
-const fakeArray = [...issueManager.issues()];
+// const fakeArray = [...issueManager.issues()];
 
-// removes depreciation warning
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
-
-mongoose
-    .connect('mongodb://localhost/tissue')
-    .then(() => console.log('Connected to MongoDB'))
-    .catch((err) => console.error('Could not be connect to MongoDB because:' + err));
+const issue = mongoose.model('issue', new mongoose.Schema({
+    issue: {
+        Id: String,
+        Title: String,
+        Status: String,
+        Created: String,
+        Updated: String,
+        Details: String, 
+    }
+}))
 
 router.use(express.json());
 router.use(express.urlencoded({ extended: true}));
@@ -22,13 +22,10 @@ router.get('/issues', (req, res) => {
 	/*
 	Returns all issues as json
 	*/
-	res.json(fakeArray)  
+    issue.find()
+        .then(Model => res.json(Model));
+    // res.json(fakeArray)
 });
-
-let greet = function(name) {
-    let result = `Hello my name is ${name}`;
-    console.log(result);
-}
 
 router.put('/issues/issues.json', (req, res) => {	
 	/*
@@ -44,46 +41,56 @@ router.put('/issues/issues.json', (req, res) => {
 	res.status(200).send('The information you asked for has been retrieved.')
 });
 
-router.post('/issues/:issue_id.json', (req,res) => {
+router.post('/issues', (req,res) => {
 	/*
 	The HTTP reqeuest body contains the JSON 
 	with the new data for this isssue. In your
 	code to handle this route, you should find
 	the issue in your issues array with the
 	correspoinding id and update it oaccordingly.
-	*/
+    */
+   var fakeArray = [
+	{id: 1,
+	title: 'bad apple',
+	status: 'new',
+	created: '1/1/01',
+	updated: '',
+	details: 'Website broke?'}];
 
-	const response = req.body;
-	const movie = fakeArray.find(m => m.id === parseInt(req.params.id));
+	// const response = req.body;
+	// const movie = issue.find(m => m.id === parseInt(req.params.id));
+    issue.create(fakeArray[0])
+        .then(Model => res.json(Model));
+        
 
-	if (!movie) {
-		res.status(404).send('The movie with the given ID was not found.');
-	}
+	// if (!movie) {
+	// 	res.status(404).send('The movie with the given ID was not found.');
+	// }
 	
-	movie = req.body;
-	res.send(movie);
+    // // movie = req.body;
+    // console.log('Movie: ', movie);
+	// res.send(movie);
 });
 
-router.delete('issues/:issue_id.json', (req,res) => {
+router.delete('issues/:id', (req,res) => {
 	/*
 	Removes the issue from the issue array.
-
-	psuedo code:
-
-	lookup movie
-	if not their return 404
-		delete it	
 	*/
 
-	const movie = fakeArray.find(m => m.id === parseInt(req.params.id));
-	if (!movie) {
-		res.status(404).send('The course with the given ID was not found.')
-		return
-	}
+    // const movie = issue.find(m => m.id === parseInt(req.params.id));
+    
+	// if (!movie) {
+	// 	res.status(404).send('The course with the given ID was not found.')
+	// 	return
+	// }
 
-	const index = fakeArray.indexOf(movie);
-	fakeArray.splice(index, 1);
-	res.status(200).send('Movie deleted!');
+	// const index = issue.indexOf(movie);
+	// issue.splice(index, 1);
+    // res.status(200).send('Movie deleted!');
+    console.log('id: ', req.params.id);
+    // issue.findById({ _id: req.params.id })
+    //   .then(dbModel => dbModel.remove())
+    //   .then(dbModel => res.json(dbModel));
 });
 
 
@@ -94,13 +101,3 @@ const getName = () => {
 exports.getName = getName;
 
 module.exports = router;
-
-/*
-Notes:
-
-post- send data to a server
-	- u have an id
-put- send data to a server
-	- dotn have an id, server creates
-
-*/
